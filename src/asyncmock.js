@@ -1,15 +1,15 @@
 const misProductos = [
-    { id: 1, nombre: "Yerba", precio: 500, img: "./img/yerba.jpg" },
-    { id: 2, nombre: "Fideos", precio: 200, img: "./img/fideos.jpg" },
-    { id: 3, nombre: "Arroz", precio: 180, img: "./img/arroz.jpg" },
-    { id: 4, nombre: "Aceite", precio: 900, img: "./img/aceite.jpg" },
+    { id: "1", nombre: "Yerba", precio: 500, img: "../img/yerba.jpg", idCat: "2" },
+    { id: "2", nombre: "Fideos", precio: 200, img: "../img/fideos.jpg", idCat: "2"  },
+    { id: "3", nombre: "Arroz", precio: 180, img: "../img/arroz.jpg", idCat: "3"  },
+    { id: "4", nombre: "Aceite", precio: 900, img: "../img/aceite.jpg", idCat: "3"  },
 ]
 
 export const getProductos = () => {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(misProductos);
-        }, 2000)
+        }, 50)
     })
 }
 
@@ -18,6 +18,17 @@ export const getUnProducto = (id) => {
         setTimeout(() => {
             const producto = misProductos.find(prod => prod.id === id);
             resolve(producto);
-        }, 2000)
+        }, 50)
+    })
+}
+
+/**Creamos una funcion que retorna un Array de una determinada categoria del producto */
+
+export const getProductosPorCategoria = (idCategoria) => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            const productosCategoria = misProductos.filter(prod => prod.idCat === idCategoria);
+            resolve(productosCategoria);
+        }, 50)
     })
 }
